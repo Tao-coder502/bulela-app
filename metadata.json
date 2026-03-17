@@ -1,0 +1,9 @@
+{
+  "name": "Bulela: Learning that feels you",
+  "description": "A gamified Bantu language learning platform featuring Bulela the Honeyguide. Master Bemba and Nyanja with the 'Silk & Copper' aesthetic and adaptive AI guidance.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera",
+    "geolocation"
+  ]
+}

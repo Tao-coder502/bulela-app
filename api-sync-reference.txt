@@ -1,0 +1,73 @@
+/**
+ * BULELA BACKEND REFERENCE
+ * ------------------------
+ * This code is intended for a server-side route (e.g., /api/sync)
+ * using Drizzle ORM and Neon Postgres.
+ */
+
+import { db } from './db';
+import { studentProgress, linguisticTelemetry, users } from './schema';
+import { eq, and } from 'drizzle-orm';
+
+export async function POST(req: Request) {
+  try {
+    const { userId, items } = await req.json();
+
+    if (!userId || !items) {
+      return new Response(JSON.stringify({ error: "Invalid payload" }), { status: 400 });
+    }
+
+    for (const item of items) {
+      if (item.type === 'user_update') {
+        // Upsert student progress
+        await db.insert(studentProgress)
+          .values({
+            id: item.id,
+            studentId: userId,
+            lessonId: item.payload.lessonId,
+            score: item.payload.score,
+            streak: item.payload.streak,
+            struggleTags: item.payload.struggleTags || [],
+            createdAt: new Date(item.timestamp)
+          })
+          .onConflictDoUpdate({
+            target: [studentProgress.studentId, studentProgress.lessonId],
+            set: {
+              score: item.payload.score,
+              streak: item.payload.streak,
+              struggleTags: item.payload.struggleTags || [],
+            }
+          });
+          
+        // Update user global XP and Streak
+        await db.update(users)
+          .set({ 
+             streak: item.payload.streak,
+             lastActivityAt: new Date(item.timestamp)
+          })
+          .where(eq(users.id, userId));
+
+      } else if (item.type === 'telemetry') {
+        // Log linguistic mistakes for teacher dashboard
+        await db.insert(linguisticTelemetry)
+          .values({
+            id: item.id,
+            userId: userId,
+            isCorrect: item.payload.isCorrect,
+            hesitationMs: item.payload.hesitationMs || 0,
+            concordType: item.payload.errorType || 'unknown',
+            serverUpdatedAt: new Date(item.timestamp)
+          });
+      }
+    }
+
+    return new Response(JSON.stringify({ success: true, count: items.length }), { 
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error("Backend Sync Error:", error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
+  }
+}

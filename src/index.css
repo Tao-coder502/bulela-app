@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-bulela-green: #083124;
+  --color-bulela-green-dark: #041d15;
+  --color-bulela-green-light: #0c4a36;
+  --color-honey: #B6833E;
+  --color-honey-dark: #8e6530;
+  --color-honey-light: #d4a15c;
+  --color-cream: #FCF9F1;
+  --color-candy-yellow: #FFD900;
+  --color-candy-orange: #FF9600;
+  --color-candy-blue: #1CB0F6;
+  --color-candy-red: #FF4B4B;
+  --color-candy-green: #58CC02;
+  --color-candy-green-dark: #46A302;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-bulela-green antialiased font-sans;
+  }
+}
+
+@layer components {
+  .btn-isometric {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.1s;
+    border-radius: 1rem;
+    border-bottom-width: 4px;
+  }
+
+  .btn-isometric:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-bob {
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  .shimmer-gold {
+    background: linear-gradient(90deg, #B6833E 25%, #FDE68A 50%, #B6833E 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+  }
+
+  .btn-isometric-green {
+    @apply bg-candy-green text-white border-candy-green-dark hover:brightness-110;
+  }
+
+  .btn-isometric-honey {
+    @apply bg-honey text-white border-honey-dark hover:brightness-110;
+  }
+
+  .btn-isometric-white {
+    @apply bg-white text-gray-400 border-gray-200 hover:bg-gray-50;
+  }
+
+  .bento-card {
+    @apply bg-white border-2 border-gray-200 rounded-[2rem] p-6 shadow-sm;
+  }
+
+  .nav-item-active {
+    @apply bg-bulela-green/10 border-2 border-bulela-green text-bulela-green;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

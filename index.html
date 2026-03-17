@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulela</title>
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Critical CSS Fallback for Ancestral Dark Theme */
+        :root {
+            --emerald: #083124;
+            --emerald-dark: #041d15;
+            --copper: #B6833E;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #041d15; /* emerald-dark */
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .ancestral-dark {
+            background-color: #083124;
+            color: white;
+        }
+        /* Custom scrollbar for emerald theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #083124;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B6833E;
+            border-radius: 4px;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+        .animate-shake {
+            animation: shake 0.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.2); filter: brightness(1.2); }
+        }
+        .animate-pulse-gold {
+            animation: pulse-gold 0.5s ease-in-out;
+        }
+
+        @keyframes slide-up-fade {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up-fade {
+            animation: slide-up-fade 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="ancestral-dark">
+    <div id="root"></div>
+<script type="module" src="/src/index.tsx"></script>
+</body>
+</html>

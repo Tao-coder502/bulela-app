@@ -1,0 +1,48 @@
+[
+  {
+    "id": "lesson_1_greetings",
+    "title": "Moni (Greetings)",
+    "description": "Master \"Muli bwanji\" and the respectful \"Zikomo\".",
+    "type": "concept",
+    "xpReward": 100,
+    "requiredMasteryScore": 80,
+    "prerequisites": []
+  },
+  {
+    "id": "lesson_2_muba_class",
+    "title": "The Mu-/A- Class",
+    "description": "Change \"Munthu\" (person) to \"Anthu\" (people) using Ulemu.",
+    "type": "concept",
+    "xpReward": 150,
+    "requiredMasteryScore": 80,
+    "prerequisites": ["lesson_1_greetings"]
+  },
+  {
+    "id": "lesson_3_mirror_rule_intro",
+    "title": "The Mirror Rule (Concord)",
+    "description": "Match the prefix \"A-\" to the verb \"ali bwino\" (The people are well).",
+    "type": "drill",
+    "xpReward": 200,
+    "requiredMasteryScore": 80,
+    "prerequisites": ["lesson_2_muba_class"]
+  },
+  {
+    "id": "lesson_4_chizi_class",
+    "title": "The Chi-/Zi- Class",
+    "description": "Identify \"Chinthu\" (thing) vs \"Zinthu\" (things).",
+    "type": "concept",
+    "xpReward": 150,
+    "requiredMasteryScore": 80,
+    "prerequisites": ["lesson_3_mirror_rule_intro"]
+  },
+  {
+    "id": "lesson_5_advanced_proverbs",
+    "title": "Miyambo (Proverbs)",
+    "description": "Master the deep wisdom of Nyanja ancestral proverbs.",
+    "type": "concept",
+    "xpReward": 500,
+    "requiredMasteryScore": 90,
+    "prerequisites": ["lesson_4_chizi_class"],
+    "isProOnly": true
+  }
+]
