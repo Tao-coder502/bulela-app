@@ -1,133 +1,121 @@
-# Bulela: Learning that feels you
+# 🇿🇲 Bulela: Preserving the Soul of Africa through AI  
+### *Learning that feels you*
 
-Bulela is a gamified Bantu language learning platform featuring **Bulela the Honeyguide**. It's designed to make mastering Nyanja and Bemba an immersive, culturally resonant experience using the "Silk & Copper" aesthetic and adaptive AI guidance.
+> "Chala chimodzi sichiswa nsabwe." (One finger cannot crush a louse.)
 
-## 🌟 Key Features
+Bulela is an AI-powered platform designed to preserve and teach indigenous African languages through adaptive, sentiment-aware learning. We are building the digital infrastructure for African language intelligence.
 
-- **Adaptive Learning Path**: A dynamic curriculum that adjusts based on your mastery of noun classes and concord rules. Featuring a **Learner Tier** system (MWAYI, CHIKONDI, DOLO) and automated next-lesson selection.
-- **Bulela AI Tutor**: A wise, encouraging AI companion powered by Gemini 3.1, providing context-aware guidance, cultural proverbs, and personalized feedback based on your mastery gaps.
-- **Sentiment-Aware Learning**: Analyzes learner behavior (flow, friction, boredom) to adjust the difficulty and provide timely **Recommended Actions** (e.g., SHOW_HINT, SIMPLIFY_TASK).
-- **Placement Mission**: A 3-step diagnostic mission for new users to determine their initial proficiency tier.
-- **Offline-First Sync**: Resilient synchronization that allows you to learn offline and sync your progress when back online.
-- **Voice Practice**: High-fidelity speech-to-text for practicing pronunciation and conversational Nyanja.
-- **Mastery Tracking**: Detailed metrics for each noun class, ensuring you truly master the "Mirror Rule" (concord), with visual progress charts.
+---
 
-## 🛠️ Tech Stack
+## 🚀 The Opportunity
 
-### Frontend
-- **React 18** with **Vite**
-- **Tailwind CSS** for the "Silk & Copper" aesthetic
-- **Zustand** for state management
-- **Motion (Framer Motion)** for fluid animations
-- **Lucide React** for iconography
+- **The Problem**  
+  Over 2,000 African languages exist, yet they remain digitally underrepresented. Existing language platforms fail to capture the structural complexity of Bantu languages such as noun classes and concord systems.
 
-### Backend
-- **Fastify** (High-performance Node.js framework)
-- **PostgreSQL** with **Drizzle ORM**
-- **Clerk** for secure authentication
-- **Zod** for schema validation
+- **Why Now**  
+  Advances in AI—large language models, speech recognition, and edge computing—make it possible to build intelligent, localized learning systems for the first time.
 
-### AI & Services
-- **Google Gemini API** (Tutor Orchestration)
-- **Hugging Face (Gemma)** (Sentiment Analysis)
-- **IndexedDB** (Offline Sync Queue)
+- **The Solution**  
+  Bulela delivers adaptive, AI-powered learning tailored specifically to African linguistic structures, combining personalization, speech interaction, and emotional intelligence.
+
+- **The Impact**  
+  Preserving languages while generating high-quality datasets that power the future of AI for African languages.
+
+---
+
+## 👨‍💻 Founder
+
+**Taona Ndhlovu** — Founder & Engineer  
+
+Building Bulela from the ground up with a focus on AI systems, adaptive learning, and cultural preservation.  
+
+Driven by a personal mission to reconnect people with their linguistic identity.
+
+---
+
+## 🌟 Product & Innovation
+
+- **Adaptive Learning Engine**  
+  Personalized learning paths based on mastery of noun classes, concord rules, and real-time performance signals.
+
+- **AI Tutor**  
+  Powered by Google Gemini and lightweight local models, delivering contextual explanations and culturally relevant guidance.
+
+- **Sentiment-Aware Learning**  
+  Detects learner frustration, engagement, and flow state, dynamically adjusting difficulty and feedback in real time.
+
+- **Offline-First Architecture**  
+  Built for African connectivity realities, enabling seamless learning even in low or unstable network environments.
+
+---
+
+## 🧠 Data & AI Infrastructure
+
+Bulela is more than a learning platform—it is a data engine for African language intelligence.
+
+We generate structured datasets including:
+- Speech and pronunciation data  
+- Grammar and linguistic patterns  
+- Sentiment-linked learning behavior  
+
+These datasets contribute to building the next generation of AI systems for underrepresented African languages.
+
+---
+
+## 💰 Business Model
+
+- **Freemium Model**  
+  Free core learning experience with premium AI tutoring and advanced features.
+
+- **B2B Partnerships**  
+  Licensing to schools, universities, and cultural organizations.
+
+- **Future Expansion**  
+  AI dataset licensing and standardized language certification.
+
+---
+
+## 🌍 Vision
+
+To become the leading platform for African language learning and the foundational infrastructure for AI in indigenous languages globally.
+
+---
+
+## 🛠️ Technical Stack
+
+- **Frontend**  
+  React 19, Vite, Tailwind CSS, Zustand, Motion
+
+- **Backend**  
+  Fastify, PostgreSQL (Neon), Drizzle ORM, Clerk, Zod
+
+- **AI**  
+  Google Gemini (API), lightweight local models, NLP sentiment models
+
+- **DevOps**  
+  Docker, Docker Compose
+
+---
 
 ## 🏗️ Architecture
 
-The project follows a **Clean Architecture** pattern to ensure maintainability and scalability:
+The project follows a **Service-Repository pattern**:
 
-- **`/repositories`**: Data access layer using Drizzle ORM.
-- **`/services`**: Business logic layer (User management, Sync, AI orchestration).
-- **`/server.ts`**: Fastify server with Zod-validated API routes and Vite middleware.
-- **`/store`**: Frontend state management with Zustand.
-- **`/components`**: Atomic and composite UI components.
+- `/repositories` → Data access layer  
+- `/server/services` → Business logic & AI orchestration  
+- `/server.ts` → Fastify server with API routes and middleware  
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- Node.js 22+
-- PostgreSQL database
-- Clerk account for authentication
-- Gemini API key
+## ⚙️ Getting Started
 
-### Environment Variables
-Create a `.env` file based on `.env.example`:
-```env
-# Database
-DATABASE_URL=postgresql://user:pass@host:port/db
-
-# Authentication (Clerk)
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_...
-CLERK_SECRET_KEY=sk_test_...
-
-# AI & Services
-GEMINI_API_KEY=...
-HUGGINGFACE_TOKEN=... # Optional for advanced sentiment analysis
-```
-
-### Installation
 ```bash
+# Install dependencies
 npm install
-```
 
-### Development
-```bash
+# Run development server
 npm run dev
+
+# Run with Docker
+docker-compose up --build
 ```
-The app will be available at `http://localhost:3000`.
-
-### Docker Development
-
-#### Prerequisites
-- Docker & Docker Compose installed
-
-#### Quick Start with Docker
-```bash
-# Copy environment file
-cp .env.example .env
-
-# Edit .env with your actual API keys
-
-# Start development environment
-npm run docker:dev
-```
-This will start:
-- **App**: http://localhost:3000
-- **PostgreSQL**: localhost:5432
-- **Redis**: localhost:6379
-- **Adminer**: http://localhost:8080 (Database management)
-
-#### Docker Commands
-```bash
-# Start development environment
-npm run docker:dev
-
-# View logs
-npm run docker:logs
-
-# Stop containers
-npm run docker:down
-
-# Clean up volumes and containers
-npm run docker:clean
-```
-
-#### Production Deployment
-```bash
-# Build and start production environment
-npm run docker:prod
-```
-
-**Note**: For production, ensure you have:
-- External PostgreSQL database (Neon recommended)
-- SSL certificates in `./ssl/` directory
-- Updated `DATABASE_URL` in production environment
-
-### Production Build
-```bash
-npm run build
-npm start
-```
-
-## 📜 License
-This project is for educational and cultural preservation purposes.
