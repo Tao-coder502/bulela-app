@@ -15,7 +15,7 @@ if (!PUBLISHABLE_KEY) {
   console.error("Clerk Publishable Key is missing. Please ensure VITE_CLERK_PUBLISHABLE_KEY is set in your environment variables.");
 }
 
-/*
+
 const registerServiceWorker = async () => {
   if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
     try {
@@ -33,7 +33,7 @@ const registerServiceWorker = async () => {
 };
 
 registerServiceWorker();
-*/
+
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error("Could not find root element");
