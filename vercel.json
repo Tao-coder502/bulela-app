@@ -1,5 +1,4 @@
 {
-  "installCommand": "npm install --legacy-peer-deps react-is",
-  "framework": "vite",
-  "nodeVersion": "22"
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "vite"
 }
