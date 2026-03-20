@@ -1,5 +1,6 @@
 import React from 'react';
 import BulelaMascot from './BulelaMascot';
+import { SignInButton, SignUpButton } from '@clerk/clerk-react';
 
 interface Props {
   onDevBypass: () => void;
@@ -16,12 +17,19 @@ const WelcomeScreen: React.FC<Props> = ({ onDevBypass }) => {
         Master Zambian languages with your AI cultural tutor.
       </p>
       <div className="flex flex-col gap-4 w-full max-w-xs">
-        <button className="btn-isometric btn-isometric-green w-full py-4 text-xl">
-          GET STARTED
-        </button>
+        <SignUpButton mode="modal">
+          <button className="btn-isometric btn-isometric-green w-full py-4 text-xl">
+            GET STARTED
+          </button>
+        </SignUpButton>
+        <SignInButton mode="modal">
+          <button className="text-bulela-green font-black hover:opacity-80 transition-opacity">
+            ALREADY HAVE AN ACCOUNT? LOG IN
+          </button>
+        </SignInButton>
         <button 
           onClick={onDevBypass}
-          className="text-gray-400 font-bold hover:text-bulela-green transition-colors"
+          className="text-gray-400 font-bold hover:text-bulela-green transition-colors mt-4"
         >
           Dev Bypass
         </button>
