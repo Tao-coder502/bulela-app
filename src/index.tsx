@@ -15,26 +15,6 @@ if (!PUBLISHABLE_KEY) {
   console.error("Clerk Publishable Key is missing. Please ensure VITE_CLERK_PUBLISHABLE_KEY is set in your environment variables.");
 }
 
-
-const registerServiceWorker = async () => {
-  if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
-    try {
-      const swUrl = new URL('./sw.js', window.location.href).href;
-      if (new URL(swUrl).origin !== window.location.origin) {
-        console.warn('[Bulela] ServiceWorker origin mismatch. SW registration skipped.');
-        return;
-      }
-      await navigator.serviceWorker.register(swUrl, { scope: './' });
-      console.log('[Bulela] ServiceWorker registered successfully');
-    } catch (err) {
-      console.warn('[Bulela] ServiceWorker registration skipped:', err);
-    }
-  }
-};
-
-registerServiceWorker();
-
-
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error("Could not find root element");
 

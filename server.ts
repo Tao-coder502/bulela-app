@@ -70,6 +70,8 @@ async function start() {
         upgradeInsecureRequests: [],
       },
     },
+    crossOriginEmbedderPolicy: { policy: "require-corp" },
+    crossOriginOpenerPolicy: { policy: "same-origin" },
   });
   await fastify.register(rateLimit, {
     max: 100,
