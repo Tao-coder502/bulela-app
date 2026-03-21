@@ -1,0 +1,24 @@
+{
+  "short_name": "Bulela",
+  "name": "Bulela: Bantu Language Tutor",
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#041d15",
+  "background_color": "#041d15",
+  "orientation": "portrait",
+  "description": "Master Bantu languages with the guidance of Bulela."
+}
